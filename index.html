@@ -22,7 +22,7 @@
               if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
                 // On se sert du modulo pour déterminé si le nombre est à virgule. si le reste est différant de 0 alors c'est un nombre à virgule
                 if (Number(firstNumber) % 1 !== 0 && Number(secondNumber) % 1 !== 0) {
-                  firstNumberInteger = Math.trunc(firstNumber);
+                  firstNumberInteger = Math.trunc(firstNumber);//La fonction Math.trunc() retourne la partie entière d'un nombre en retirant la partie décimale.
                   result = firstNumberInteger * secondNumber;
                   alert(result);
                 } else {
