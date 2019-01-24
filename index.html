@@ -8,20 +8,30 @@
         <form>
             <label for="firstNumber">Premier nombre : </label><input type="text" id="firstNumber" name="firstNumber"/><br/>
             <label for="secondNumber">Deuxième nombre : </label><input type="text" id="secondNumber" name="secondNumber"/><br/>
-            <input type="button" name="submit" id="submit" onclick="getNumber()" value="calculer" />
+            <button name="submit" id="submit" onclick="getNumber()" value="calculer">Calculer</button>
+                                    <!--    appelle de la fonction -->
         </form>
         <script>
-          function getNumber() {
-            var firstNumber = document.getElementById('firstNumber').value;
-            var secondNumber = document.getElementById('secondNumber').value;
-            var result = firstNumber*secondNumber;
-            if (isNaN(firstNumber)==false && isNaN(secondNumber)==false)
-            {
-              alert(Math.floor(result));
-            }else{
-              alert('Merci de renseigner les champs');
- }
-}
+              // déclaration de la fonction
+        function getNumber() {
+              var firstNumber = document.getElementById('firstNumber').value; //type string
+              var secondNumber = document.getElementById('secondNumber').value; // type string
+              //isNan(parameter) is Not a Number
+              // ! NOT//Sinon
+              // Condition
+              if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+                // On se sert du modulo pour déterminé si le nombre est à virgule. si le reste est différant de 0 alors c'est un nombre à virgule
+                if (Number(firstNumber) % 1 !== 0 && Number(secondNumber) % 1 !== 0) {
+                  firstNumberInteger = Math.trunc(firstNumber);
+                  result = firstNumberInteger * secondNumber;
+                  alert(result);
+                } else {
+                  alert('ce sont des nombres entiers');
+                }
+              } else {
+                alert('attention ce ne sont pas des nombres');
+              }
+            }
         </script>
     </body>
 </html>
